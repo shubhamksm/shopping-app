@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import Logo from "../resources/logo.png";
-import CartLogo from "../resources/cart.svg";
 import classNames from "classnames";
+import { STATIC_BASE_URL } from "../api/constants";
 
 const Header = () => {
   const [isMenuHidden, setToggleMenu] = useState(true);
@@ -10,7 +9,11 @@ const Header = () => {
     <nav className="bg-white border-b border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
         <a className="flex items-center hover:cursor-pointer">
-          <img src={Logo} className="mr-3 h-6 sm:h-9" alt="Main Logo" />
+          <img
+            src={`${STATIC_BASE_URL}/images/logo.png`}
+            className="mr-3 h-6 sm:h-9"
+            alt="Main Logo"
+          />
           <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
             SABKA BAZAR
           </span>
@@ -23,7 +26,7 @@ const Header = () => {
             <span className="sr-only">Open Cart</span>
             <img
               className="w-8 h-8 rounded-full"
-              src={CartLogo}
+              src={`${STATIC_BASE_URL}/images/cart.svg`}
               alt="Cart Icon"
             />
           </button>

@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import Header from "./components/Header";
 import apiClient from "./api";
 
 function App() {
-  const [data, setData] = useState(null);
-
   const getAllData = async () => {
     const resp = await apiClient.get("/banners");
     console.log(resp);
@@ -13,7 +12,12 @@ function App() {
     getAllData();
   }, []);
 
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+  return (
+    <>
+      <Header />
+      <div className="app">Main App will come here</div>
+    </>
+  );
 }
 
 export default App;
