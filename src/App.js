@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import apiClient from "./api";
 
 function App() {
@@ -15,7 +16,8 @@ function App() {
   return (
     <>
       <Header />
-      <div className="app">Main App will come here</div>
+      <div className="h-screen">Main App will come here</div>
+      <Footer />
     </>
   );
 }
