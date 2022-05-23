@@ -1,24 +1,16 @@
-import React, { useEffect } from "react";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import apiClient from "./api";
+import React from "react";
+import { Header, Banner, Footer } from "./components";
+import { ProductProvider } from "./contexts";
 
 function App() {
-  const getAllData = async () => {
-    const resp = await apiClient.get("/banners");
-    console.log(resp);
-  };
-
-  useEffect(() => {
-    getAllData();
-  }, []);
-
   return (
-    <>
+    <ProductProvider>
       <Header />
-      <div className="h-screen">Main App will come here</div>
+      <div className="h-screen">
+        <Banner />
+      </div>
       <Footer />
-    </>
+    </ProductProvider>
   );
 }
 
