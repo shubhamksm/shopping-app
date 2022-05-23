@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <Header />
-      <div className="h-screen">
+      <div className="app">
         <Dashboard />
       </div>
       <Footer />
