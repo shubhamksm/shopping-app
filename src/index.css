@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.carousel p.carousel-status {
+  color: #000;
+  text-shadow: none;
+}
+
+.carousel .control-dots li.dot {
+  background: #000;
+}

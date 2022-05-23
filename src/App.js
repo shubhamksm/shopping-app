@@ -1,16 +1,16 @@
 import React from "react";
-import { Header, Banner, Footer } from "./components";
-import { ProductProvider } from "./contexts";
+import { Header, Footer } from "./components";
+import { Dashboard } from "./pages";
 
 function App() {
   return (
-    <ProductProvider>
+    <>
       <Header />
       <div className="h-screen">
-        <Banner />
+        <Dashboard />
       </div>
       <Footer />
-    </ProductProvider>
+    </>
   );
 }
 
