@@ -10,7 +10,7 @@ const Header = () => {
       <div className="container flex flex-wrap justify-between items-center mx-auto">
         <a className="flex items-center hover:cursor-pointer">
           <img
-            src={`${STATIC_BASE_URL}/images/logo.png`}
+            src={`${STATIC_BASE_URL}/static/images/logo.png`}
             className="mr-3 h-6 sm:h-9"
             alt="Main Logo"
           />
@@ -26,7 +26,7 @@ const Header = () => {
             <span className="sr-only">Open Cart</span>
             <img
               className="w-8 h-8 rounded-full"
-              src={`${STATIC_BASE_URL}/images/cart.svg`}
+              src={`${STATIC_BASE_URL}/static/images/cart.svg`}
               alt="Cart Icon"
             />
           </button>

@@ -1,6 +1,9 @@
 import React, { useContext, useEffect } from "react";
 import { ProductContext } from "../contexts";
 import apiClient from "../api";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { STATIC_BASE_URL } from "../api/constants";
 
 const Banner = () => {
   const { productState, productActions } = useContext(ProductContext);
@@ -15,7 +18,20 @@ const Banner = () => {
     getAllData();
   }, []);
 
-  return <div>Banner will come here</div>;
+  return (
+    <Carousel
+      showArrows={true}
+      showThumbs={false}
+      onChange={() => {}}
+      onClickItem={() => {}}
+    >
+      {productState.banners.map((banner) => (
+        <div key={banner.id}>
+          <img src={`${STATIC_BASE_URL}${banner.bannerImageUrl}`} />
+        </div>
+      ))}
+    </Carousel>
+  );
 };
 
 export default Banner;
