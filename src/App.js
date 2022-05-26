@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <Header />
-      <div className="app">
+      <div className="app md:px-5 lg:px-10">
         <Dashboard />
       </div>
       <Footer />

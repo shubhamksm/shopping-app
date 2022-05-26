@@ -3,6 +3,7 @@ import apiClient from "../api";
 import { ProductContext } from "../contexts";
 import Banner from "../components/Banner";
 import { STATIC_BASE_URL } from "../api/constants";
+import classNames from "classnames";
 
 const Dashboard = () => {
   const { productState, productActions } = useContext(ProductContext);
@@ -20,11 +21,18 @@ const Dashboard = () => {
   return (
     <>
       <Banner banners={productState.banners} />
-      {productState.categories.map((category) => {
-        const { imageUrl, id, name, description, enabled } = category;
-        return (
-          enabled && (
-            <div key={id} className="flex items-center shadow-md my-8 p-4">
+      {productState.categories
+        .filter((item) => item.enabled)
+        .map((category, index) => {
+          const { imageUrl, id, name, description } = category;
+          return (
+            <div
+              key={id}
+              className={classNames(
+                index % 2 === 0 && "flex-row-reverse",
+                "flex items-center shadow-md my-8 p-4 hover:shadow-lg"
+              )}
+            >
               <img
                 className="object-cover md:h-48 lg:h-48 h-24"
                 src={`${STATIC_BASE_URL}${imageUrl}`}
@@ -42,9 +50,8 @@ const Dashboard = () => {
                 >{`Explore ${name}`}</button>
               </div>
             </div>
-          )
-        );
-      })}
+          );
+        })}
     </>
   );
 };
