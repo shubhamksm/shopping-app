@@ -6,6 +6,7 @@ export const ProductContext = React.createContext();
 export const initialState = {
   banners: [],
   categories: [],
+  selectedCategory: null,
   products: [],
   cart: [],
 };

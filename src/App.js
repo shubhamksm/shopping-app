@@ -1,13 +1,17 @@
 import React from "react";
 import { Header, Footer } from "./components";
-import { Dashboard } from "./pages";
+import { Dashboard, ProductListing } from "./pages";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <>
       <Header />
-      <div className="app md:px-5 lg:px-10">
-        <Dashboard />
+      <div className="app">
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="product-listing" element={<ProductListing />} />
+        </Routes>
       </div>
       <Footer />
     </>
