@@ -9,6 +9,7 @@ export const initialState = {
   selectedCategory: null,
   products: [],
   cart: [],
+  isMobileView: false,
 };
 
 const reducer = (state, action) => {

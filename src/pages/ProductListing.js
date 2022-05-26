@@ -1,21 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
-import apiClient from "../api";
 import { ProductContext } from "../contexts";
-import { ProductCard } from "../components";
+import { CategorySelect, ProductCard } from "../components";
+import classNames from "classnames";
 
 const ProductListing = () => {
   const {
-    productState: { products, selectedCategory },
+    productState: { products, selectedCategory, categories, isMobileView },
     productActions,
   } = useContext(ProductContext);
 
   const [filteredData, updateFilteredData] = useState([]);
-
-  const getAllData = async () => {
-    const { data: banners } = await apiClient.get("/banners");
-    const { data: products } = await apiClient.get("/products");
-    productActions.updateProductData({ banners, products });
-  };
 
   const updateData = () => {
     if (selectedCategory === null) {
@@ -27,19 +21,29 @@ const ProductListing = () => {
     }
   };
 
+  const handleCategoryClick = (id) => {
+    productActions.updateProductData({
+      selectedCategory: id === "null" ? null : id,
+    });
+  };
+
   useEffect(() => {
     updateData();
   }, [selectedCategory, products]);
 
-  useEffect(() => {
-    getAllData();
-  }, []);
-
   return (
-    <div className="flex flex-wrap mx-auto px-12">
-      {filteredData.map((data) => (
-        <ProductCard key={data.id} data={data} />
-      ))}
+    <div className={classNames("flex", isMobileView && "flex-col")}>
+      <CategorySelect
+        categories={categories}
+        isMobileView={isMobileView}
+        selectedCategory={selectedCategory}
+        handleCategoryClick={handleCategoryClick}
+      />
+      <div className="flex items-center justify-center flex-wrap mx-auto">
+        {filteredData.map((data) => (
+          <ProductCard key={data.id} data={data} />
+        ))}
+      </div>
     </div>
   );
 };

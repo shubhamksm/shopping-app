@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import classNames from "classnames";
+import React from "react";
 import { STATIC_BASE_URL } from "../api/constants";
 import { Link } from "react-router-dom";
 

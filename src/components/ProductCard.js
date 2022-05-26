@@ -3,7 +3,7 @@ import { STATIC_BASE_URL } from "../api/constants";
 
 const ProductCard = ({ data: { name, imageURL, price, description } }) => {
   return (
-    <div className="w-[300px] m-2 p-5 flex flex-col justify-between items-center bg-white rounded-lg shadow-md">
+    <div className="w-[280px] m-2 p-5 flex flex-col justify-between items-center bg-white rounded-lg shadow-md">
       <img
         className="h-[236px] mx-auto"
         src={`${STATIC_BASE_URL}${imageURL}`}
